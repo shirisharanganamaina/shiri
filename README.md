@@ -220,3 +220,7 @@ vid.read() reads a frame from the video capture object vid. It returns a Boolean
 This checks for the 'q' key press event. If the user presses the 'q' key, the loop breaks, and the program exits.
  cv2.waitKey(1) waits for a key event for 1 millisecond. It returns the ASCII value of the key pressed.
 0xFF == ord('q') checks if the key pressed is 'q'.This closes all OpenCV windows created during the program execution. It's a good practice to clean up resources and close windows before exiting the program.
+web vedio
+```
+[Screencast from 08-05-24 02:12:20 PM IST.webm](https://github.com/shirisharanganamaina/shiri/assets/169051602/360294e1-6790-438a-aee7-6307f34f746e)
+```
