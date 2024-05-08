@@ -1,5 +1,4 @@
 ##boundingbox
-![7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/34f47053-1c1a-4b37-8e96-68135cb3af05)
 
 ```
 import os
@@ -10,13 +9,13 @@ Import Statements:
 import os: This imports the 'os' module, which provides a way of using operating system-dependent functionality. In this script, it's used to create directories and handle file paths.
 import csv: This imports the 'csv' module, which provides functionality to read and write CSV files.
 from PIL import Image, ImageDraw: This imports the 'Image' and 'ImageDraw' modules from the Python Imaging Library (PIL). These modules are used for working with images and drawing on them.
+```
+![7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/34f47053-1c1a-4b37-8e96-68135cb3af05)
 
 csv_file = "/home/shirisha-ranganamaina/Downloads/7622202030987_bounding_box.csv"
 image_dir = "/home/shirisha-ranganamaina/Downloads/7622202030987"
 output_dir = "/home/shirisha-ranganamaina/Downloads/7622202030987_with_boxes"
-```
-![full_7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/0df0ad41-b551-4332-8cb9-818c02f77118)
-```
+
 csv_file, image_dir, output_dir: These variables store the paths to the CSV file containing bounding box coordinates, the directory containing the images, and the directory where the output images with bounding boxes will be saved respectively.
 
 
@@ -31,6 +30,7 @@ def draw_boxes(image, boxes):
         draw.rectangle([left, top, right, bottom], outline="red")
     return image
 
+![full_7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/0df0ad41-b551-4332-8cb9-818c02f77118)
 
 Processing CSV File:
 with open(csv_file, 'r') as file:: This opens the CSV file specified by csv_file in read mode.
@@ -65,16 +65,14 @@ with open(csv_file, 'r') as file:
         full_image_with_boxes = draw_boxes(image, boxes)
         full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
 ```
-output
 
-![7622202030987_bounding_box.csv](https://github.com/shirisharanganamaina/shiri/files/15244437/7622202030987_bounding_box.csv)
+output
+```
+![0_7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/cff798f2-8a70-4e13-9f58-266696fbbafa)
 ```
 
 ##histogram
 
-
-```
-![env](https://github.com/shirisharanganamaina/shiri/assets/169051602/f5150ee2-7b3a-4d9a-a169-982e52b49c6e)
 ```
 import numpy as np
 import cv2 as cv
@@ -83,7 +81,9 @@ from matplotlib import pyplot as plt
     import numpy as np: Imports the numpy library, commonly used for numerical operations, and assigns it the alias np.
     import cv2 as cv: Imports the OpenCV library and assigns it the alias cv.
     from matplotlib import pyplot as plt: Imports the pyplot module from the matplotlib library and assigns it the alias plt. This module is used to create plots.
- 
+``
+ ![env](https://github.com/shirisharanganamaina/shiri/assets/169051602/f5150ee2-7b3a-4d9a-a169-982e52b49c6e)
+
 img = cv.imread('/home/shirisha-ranganamaina/Downloads/scripts/env.jpeg')
 cv.imwrite("/home/shirisha-ranganamaina/Downloads/scripts/ro.jpg",img)
 
@@ -109,6 +109,7 @@ Finally, plt.show() displays the plot containing all three histograms.
 
 ```
 output
+```
 ![Screenshot from 2024-05-06 19-01-44](https://github.com/shirisharanganamaina/shiri/assets/169051602/e36e8db2-b618-464b-97d6-c8eecc079561)
 ```
 
@@ -128,7 +129,9 @@ sum = previousNum + i: Calculates the sum of the current number (i) and the prev
 print('Current Number '+ str(i) + 'Previous Number ' + str(previousNum) + 'sum' + str(sum)): Prints the current number (i), the previous number (previousNum),       and their sum (sum) in a formatted string.
 previousNum = i: Updates the value of previousNum to the current number i for the next iteration.
 ```
+
 output
+
 Current Number 0Previous Number 0sum0
 Current Number 1Previous Number 0sum1
 Current Number 2Previous Number 1sum3
@@ -139,7 +142,7 @@ Current Number 6Previous Number 5sum11
 Current Number 7Previous Number 6sum13
 Current Number 8Previous Number 7sum15
 Current Number 9Previous Number 8sum17
-
+```
 ##Web
 
 This imports the OpenCV library. OpenCV (Open Source Computer Vision Library) is an open-source computer vision and machine learning software library.
