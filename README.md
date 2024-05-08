@@ -1,2 +1,1 @@
 # shiri
-/home/shirisha-ranganamaina/Downloads/7622202030987_with_boxes/0_7622202030987_f306535d741c9148dc458acbbc887243_L_487.png
