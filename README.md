@@ -13,22 +13,34 @@ from PIL import Image, ImageDraw: This imports the 'Image' and 'ImageDraw' modul
 ![7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/34f47053-1c1a-4b37-8e96-68135cb3af05)
 
 csv_file = "/home/shirisha-ranganamaina/Downloads/7622202030987_bounding_box.csv"
+
 image_dir = "/home/shirisha-ranganamaina/Downloads/7622202030987"
+
 output_dir = "/home/shirisha-ranganamaina/Downloads/7622202030987_with_boxes"
+
 
 csv_file, image_dir, output_dir: These variables store the paths to the CSV file containing bounding box coordinates, the directory containing the images, and the directory where the output images with bounding boxes will be saved respectively.
 
 
 os.makedirs(output_dir, exist_ok=True)
+
 def draw_boxes(image, boxes):
+
     draw = ImageDraw.Draw(image)
+    
     for box in boxes:
+    
         left = int(box['left'])
+        
         top = int(box['top'])
+        
         right = int(box['right'])
+        
         bottom = int(box['bottom'])
+        
         draw.rectangle([left, top, right, bottom], outline="red")
     return image
+    
 
 ![full_7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/0df0ad41-b551-4332-8cb9-818c02f77118)
 
@@ -37,32 +49,55 @@ with open(csv_file, 'r') as file:: This opens the CSV file specified by csv_file
 csv_reader = csv.DictReader(file): This creates a CSV reader object which will iterate over the rows of the CSV file, treating each row as a dictionary where the keys are the column headers.
 
 def crop_image(image, boxes):
+
     cropped_images = []
+    
     for box in boxes:
+    
         left = int(box['left'])
+        
         top = int(box['top'])
+        
         right = int(box['right'])
+        
         bottom = int(box['bottom'])
+        
         cropped_img = image.crop((left, top, right, bottom))
+        
         cropped_images.append(cropped_img)
+        
     return cropped_images
+
 
 Function Definitions:
  draw_boxes(image, boxes): This function takes an image and a list of dictionaries representing bounding boxes and draws these bounding boxes on the image using red outlines.
 crop_image(image, boxes): This function takes an image and a list of dictionaries representing bounding boxes and crops the image to extract regions defined by these bounding boxes. It returns a list of cropped images.
 
+
 with open(csv_file, 'r') as file:
+
     csv_reader = csv.DictReader(file)
+    
     for row in csv_reader:
+    
         image_name = row['filename']
+
         image_path = os.path.join(image_dir, image_name)
+        
         output_path = os.path.join(output_dir, image_name)
+        
         image = Image.open(image_path)
+        
         boxes = [{'left': row['xmin'], 'top': row['ymin'], 'right': row['xmax'], 'bottom': row['ymax']}]
+        
         cropped_images = crop_image(image, boxes)
+        
         for i, cropped_img in enumerate(cropped_images):
-            cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
+        
+            cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}")) 
+            
         full_image_with_boxes = draw_boxes(image, boxes)
+        
         full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
 ```
 
@@ -75,7 +110,9 @@ output
 
 ```
 import numpy as np
+
 import cv2 as cv
+
 from matplotlib import pyplot as plt
 
     import numpy as np: Imports the numpy library, commonly used for numerical operations, and assigns it the alias np.
@@ -91,11 +128,17 @@ cv.imread('/home/shirisha-ranganamaina/Downloads/scripts/env.jpeg'): Reads the i
 
 
 assert img is not None, "file could not be read, check with os.path.exists()"
+
 color = ('b','g','r')
+
 for i,col in enumerate(color):
+
  histr = cv.calcHist([img],[i],None,[256],[0,256])
+ 
  plt.plot(histr,color = col)
+ 
  plt.xlim([0,256])
+ 
 plt.show()
 
 
@@ -113,13 +156,19 @@ output
 ![Screenshot from 2024-05-06 19-01-44](https://github.com/shirisharanganamaina/shiri/assets/169051602/e36e8db2-b618-464b-97d6-c8eecc079561)
 ```
 
+
 ##Iterate
 
-```num = list(range(10))
+```
+num = list(range(10))
+
 previousNum = 0
+
 for i in num:
 
+
 ist(range(10)): Creates a list containing integers from 0 to 9 (excluding 10) using the range() function and converts it to a list. So, num becomes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].
+
 
  sum = previousNum + i
  print('Current Number '+ str(i) + 'Previous Number ' + str(previousNum) + 'sum' + str(sum))
@@ -133,14 +182,23 @@ previousNum = i: Updates the value of previousNum to the current number i for th
 output
 
 Current Number 0Previous Number 0sum0
+
 Current Number 1Previous Number 0sum1
+
 Current Number 2Previous Number 1sum3
+
 Current Number 3Previous Number 2sum5
+
 Current Number 4Previous Number 3sum7
+
 Current Number 5Previous Number 4sum9
+
 Current Number 6Previous Number 5sum11
+
 Current Number 7Previous Number 6sum13
+
 Current Number 8Previous Number 7sum15
+
 Current Number 9Previous Number 8sum17
 ```
 ##Web
