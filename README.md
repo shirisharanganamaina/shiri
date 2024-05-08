@@ -5,13 +5,16 @@
 import os
 import csv
 from PIL import Image, ImageDraw
-
+    import os: This imports the 'os' module, which provides a way of using operating system-dependent functionality. In this script, it's used to create directories and handle file paths.
+    import csv: This imports the 'csv' module, which provides functionality to read and write CSV files.
+    from PIL import Image, ImageDraw: This imports the 'Image' and 'ImageDraw' modules from the Python Imaging Library (PIL). These modules are used for working with images and drawing on them.
 
 csv_file = "/home/shirisha-ranganamaina/Downloads/7622202030987_bounding_box.csv"
 image_dir = "/home/shirisha-ranganamaina/Downloads/7622202030987"
 output_dir = "/home/shirisha-ranganamaina/Downloads/7622202030987_with_boxes"
 os.makedirs(output_dir, exist_ok=True)
 
+csv_file, image_dir, output_dir: These variables store the paths to the CSV file containing bounding box coordinates, the directory containing the images, and the directory where the output images with bounding boxes will be saved respectively.
 
 def draw_boxes(image, boxes):
     draw = ImageDraw.Draw(image)
@@ -38,6 +41,7 @@ def crop_image(image, boxes):
 
 with open(csv_file, 'r') as file:
     csv_reader = csv.DictReader(file)
+os.makedirs(output_dir, exist_ok=True): This line creates the output directory specified by output_dir if it doesn't exist already. The exist_ok=True argument ensures that the operation doesn't raise an error if the directory already exists.
     for row in csv_reader:
         image_name = row['filename']
         image_path = os.path.join(image_dir, image_name)
@@ -49,5 +53,9 @@ with open(csv_file, 'r') as file:
             cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
         full_image_with_boxes = draw_boxes(image, boxes)
         full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
+Inside the loop over csv_reader, each row is processed:
 
+    image_name is extracted from the 'filename' column of the CSV.
+    The full path of the input image (image_path) and the output image (output_path) are constructed using os.path.join.
+    The input image is opened using Image.open(image_path).
 ```
