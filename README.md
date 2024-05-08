@@ -1,5 +1,6 @@
 # shiri
 ![full_7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/0df0ad41-b551-4332-8cb9-818c02f77118)
+![7622202030987_bounding_box.csv](https://github.com/shirisharanganamaina/shiri/files/15244437/7622202030987_bounding_box.csv)
 ```
 import os
 import csv
@@ -9,7 +10,6 @@ from PIL import Image, ImageDraw
 csv_file = "/home/shirisha-ranganamaina/Downloads/7622202030987_bounding_box.csv"
 image_dir = "/home/shirisha-ranganamaina/Downloads/7622202030987"
 output_dir = "/home/shirisha-ranganamaina/Downloads/7622202030987_with_boxes"
-
 os.makedirs(output_dir, exist_ok=True)
 
 
@@ -49,4 +49,5 @@ with open(csv_file, 'r') as file:
             cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
         full_image_with_boxes = draw_boxes(image, boxes)
         full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
+
 ```
