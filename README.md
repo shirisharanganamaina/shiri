@@ -1,4 +1,4 @@
-# shiri
+##boundingbox
 ![full_7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/0df0ad41-b551-4332-8cb9-818c02f77118)
 ![7622202030987_bounding_box.csv](https://github.com/shirisharanganamaina/shiri/files/15244437/7622202030987_bounding_box.csv)
 ```
@@ -60,7 +60,9 @@ Inside the loop over csv_reader, each row is processed:
     The input image is opened using Image.open(image_path).
 ```
 ##histogram
+
 ![env](https://github.com/shirisharanganamaina/shiri/assets/169051602/f5150ee2-7b3a-4d9a-a169-982e52b49c6e)
+![Screenshot from 2024-05-06 19-01-44](https://github.com/shirisharanganamaina/shiri/assets/169051602/e36e8db2-b618-464b-97d6-c8eecc079561)
 ```
 import numpy as np
 import cv2 as cv
@@ -71,11 +73,14 @@ Replace 'your_image.jpg' with the path to your grayscale image file.
 cv.imwrite("/home/shirisha-ranganamaina/Downloads/scripts/ro.jpg",img)
 assert img is not None, "file could not be read, check with os.path.exists()"
 color = ('b','g','r')
+Defines a tuple of color channel identifiers: blue, green, and red.
 for i,col in enumerate(color):
 # Calculate histogram
  histr = cv.calcHist([img],[i],None,[256],[0,256])
  plt.plot(histr,color = col)
  plt.xlim([0,256])
+Sets the x-axis limits of the plot to
 plt.show()
+Finally, plt.show() displays the plot containing all three histograms.
 ```
 
