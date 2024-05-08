@@ -59,3 +59,32 @@ Inside the loop over csv_reader, each row is processed:
     The full path of the input image (image_path) and the output image (output_path) are constructed using os.path.join.
     The input image is opened using Image.open(image_path).
 ```
+##histogram
+![env](https://github.com/shirisharanganamaina/shiri/assets/169051602/f5150ee2-7b3a-4d9a-a169-982e52b49c6e)
+```
+import numpy as np
+import cv2 as cv
+from matplotlib import pyplot as plt
+import numpy as np: Imports the numpy library, commonly used for numerical operations, and assigns it the alias np.
+    import cv2 as cv: Imports the OpenCV library and assigns it the alias cv.
+    from matplotlib import pyplot as plt: Imports the pyplot module from the matplotlib library and assigns it the alias plt. This module is used to create plots.
+ # Load an image
+img = cv.imread('/home/shirisha-ranganamaina/Downloads/scripts/env.jpeg')
+cv.imwrite("/home/shirisha-ranganamaina/Downloads/scripts/ro.jpg",img)
+    cv.imread('/home/shirisha-ranganamaina/Downloads/scripts/env.jpeg'): Reads the image file 'env.jpeg' located at the specified path using OpenCV's imread function and stores it in the variable img.
+    cv.imwrite("/home/shirisha-ranganamaina/Downloads/scripts/ro.jpg",img): Writes the image img to the file 'ro.jpg' at the specified path using OpenCV's imwrite function. This line seems unnecessary and could be removed.
+assert img is not None, "file could not be read, check with os.path.exists()"
+color = ('b','g','r')
+for i,col in enumerate(color):
+# Calculate histogram
+ histr = cv.calcHist([img],[i],None,[256],[0,256])
+ plt.plot(histr,color = col)
+ plt.xlim([0,256])
+plt.show()    assert img is not None, "file could not be read, check with os.path.exists()": This line checks if the image was successfully read. If img is None, it raises an AssertionError with the message "file could not be read, check with os.path.exists()".
+    color = ('b','g','r'): Defines a tuple of color channel identifiers: blue, green, and red.
+    The code then iterates over each color channel:
+        cv.calcHist([img],[i],None,[256],[0,256]): Calculates the histogram for the i-th color channel (i=0 for blue, i=1 for green, i=2 for red) using OpenCV's calcHist function. It computes a histogram with 256 bins in the range [0,256).
+        plt.plot(histr,color = col): Plots the histogram histr with the specified color col.
+        plt.xlim([0,256]): Sets the x-axis limits of the plot to [0,256) to match the range of pixel intensities.
+    Finally, plt.show() displays the plot containing all three histograms.
+```
