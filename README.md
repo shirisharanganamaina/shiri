@@ -222,5 +222,5 @@ This checks for the 'q' key press event. If the user presses the 'q' key, the lo
 0xFF == ord('q') checks if the key pressed is 'q'.This closes all OpenCV windows created during the program execution. It's a good practice to clean up resources and close windows before exiting the program.
 web vedio
 ```
-!https://github.com/shirisharanganamaina/shiri/assets/169051602/b6fe8cf8-ef60-4d7c-b422-60ddc3d19be4
+https://github.com/shirisharanganamaina/shiri/assets/169051602/5ad480df-95a3-41c3-9ef6-3e1ce7743667
 ```
