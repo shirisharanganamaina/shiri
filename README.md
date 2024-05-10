@@ -122,6 +122,7 @@ from matplotlib import pyplot as plt
  ![env](https://github.com/shirisharanganamaina/shiri/assets/169051602/f5150ee2-7b3a-4d9a-a169-982e52b49c6e)
 
 img = cv.imread('/home/shirisha-ranganamaina/Downloads/scripts/env.jpeg')
+
 cv.imwrite("/home/shirisha-ranganamaina/Downloads/scripts/ro.jpg",img)
 
 cv.imread('/home/shirisha-ranganamaina/Downloads/scripts/env.jpeg'): Reads the image file 'env.jpeg' located at the specified path using OpenCV's imread function and stores it in the variable img.
