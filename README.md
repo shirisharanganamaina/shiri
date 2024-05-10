@@ -5,7 +5,7 @@ import os
 import csv
 from PIL import Image, ImageDraw
 
-Import Statements:
+#Import Statements:
 import os: This imports the 'os' module, which provides a way of using operating system-dependent functionality. In this script, it's used to create directories and handle file paths.
 import csv: This imports the 'csv' module, which provides functionality to read and write CSV files.
 from PIL import Image, ImageDraw: This imports the 'Image' and 'ImageDraw' modules from the Python Imaging Library (PIL). These modules are used for working with images and drawing on them.
@@ -44,7 +44,7 @@ def draw_boxes(image, boxes):
 
 ![full_7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/shirisharanganamaina/shiri/assets/169051602/0df0ad41-b551-4332-8cb9-818c02f77118)
 
-Processing CSV File:
+#Processing CSV File:
 with open(csv_file, 'r') as file:: This opens the CSV file specified by csv_file in read mode.
 csv_reader = csv.DictReader(file): This creates a CSV reader object which will iterate over the rows of the CSV file, treating each row as a dictionary where the keys are the column headers.
 
@@ -69,7 +69,7 @@ def crop_image(image, boxes):
     return cropped_images
 
 
-Function Definitions:
+#Function Definitions:
  draw_boxes(image, boxes): This function takes an image and a list of dictionaries representing bounding boxes and draws these bounding boxes on the image using red outlines.
 crop_image(image, boxes): This function takes an image and a list of dictionaries representing bounding boxes and crops the image to extract regions defined by these bounding boxes. It returns a list of cropped images.
 
@@ -207,24 +207,24 @@ import cv2
   
    
 # Create an object to read  
-# from camera 
+from camera 
 video = cv2.VideoCapture(0) 
    
-# We need to check if camera 
-# is opened previously or not 
+We need to check if camera 
+is opened previously or not 
 if (video.isOpened() == False):  
     print("Error reading video file") 
   
-# We need to set resolutions. 
-# so, convert them from float to integer. 
+We need to set resolutions. 
+so, convert them from float to integer. 
 frame_width = int(video.get(3)) 
 frame_height = int(video.get(4)) 
    
 size = (frame_width, frame_height) 
    
-# Below VideoWriter object will create 
-# a frame of above defined The output  
-# is stored in 'filename.avi' file. 
+Below VideoWriter object will create 
+a frame of above defined The output  
+is stored in 'filename.avi' file. 
 result = cv2.VideoWriter('s.avi',  
                          cv2.VideoWriter_fourcc(*'MJPG'), 
                          10, size) 
@@ -251,13 +251,13 @@ while(True):
     else: 
         break
   
-# When everything done, release  
-# the video capture and video  
-# write objects 
+When everything done, release  
+the video capture and video  
+write objects 
 video.release() 
 result.release() 
     
-# Closes all the frames 
+Closes all the frames 
 cv2.destroyAllWindows() 
    
 opens the default camera (usually the webcam) connected to the computer. You can specify a different camera index if multiple cameras are available.
